@@ -162,7 +162,7 @@ def delete_all():
 def progressbar(iterable, label, report_every, total_items):
     print(label, report_every, total_items)
     start = datetime.now()
-    print(f'{label} started at: {start}')
+    print('{label} started at: {start}'.format(label=label, start=start))
 
     def _gen():
         for i, v in enumerate(iterable):
@@ -171,11 +171,12 @@ def progressbar(iterable, label, report_every, total_items):
                 d = t - start
                 rate = int(i/d.total_seconds()) if d.total_seconds() != 0 else None
                 time_left = timedelta(seconds=((total_items - i) / rate)) if rate else '???'
-                print(f'[{t}] - {i}...\t({(d)} - {rate or "???"} items/sec - ETA {time_left})')
+                print('[{t}] - {i}...\t({d} - {rate} items/sec - ETA {time_left})'
+                      .format(t=t, i=i, d=d, rate=(rate or "???"), time_left=time_left))
             yield v
     yield _gen()
     end = datetime.now()
-    print(f'{label} finished at: {end}, Total time: {end-start}')
+    print('{label} finished at: {end}, Total time: {total}'.format(label=label, end=end, total=(end-start)))
 
 
 def benchmark_get_citations(N=100, **kwargs):
@@ -213,13 +214,13 @@ PROVIDERS = ['Zenodo', 'ADS', 'INSPIRE']
 def _gen_identifier():
     base_value = uuid4()
 
-    ids = [{'id': f'{faker.url()}{base_value.hex}', 'scheme': 'url'}]
+    ids = [{'id': '{}{}'.format(faker.url(), base_value.hex), 'scheme': 'url'}]
     if random.random() > 0.3:  # doi
-        ids.append({'id': f'10.5072/{base_value.hex}', 'scheme': 'doi'})
+        ids.append({'id': '10.5072/{}'.format(base_value.hex), 'scheme': 'doi'})
     if random.random() > 0.8:  # second url
-        ids.append({'id': f'{faker.url()}{base_value.hex}', 'scheme': 'url'})
+        ids.append({'id': '{}{}'.format(faker.url(), base_value.hex), 'scheme': 'url'})
     if random.random() > 0.8:  # PMID
-        ids.append({'id': f'{base_value.node}', 'scheme': 'pmid'})
+        ids.append({'id': str(base_value.node), 'scheme': 'pmid'})
     return ids
 
 
