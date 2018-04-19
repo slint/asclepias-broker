@@ -73,6 +73,7 @@ class ObjectDoc(BaseDoc):
 
         index = 'objects-v1.0.0'
 
+    GroupType = Keyword()
     Title = Text()
     Type = Object(ObjectType, multi=False)
     Identifier = Nested(IdentifierObject, multi=True)

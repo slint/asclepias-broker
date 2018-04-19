@@ -1,89 +1,92 @@
 {
   "mappings": {
     "doc": {
+      "_all": {
+        "enabled": false
+      },
+      "dynamic": false,
       "properties": {
-        "Type": {
+        "Creator": {
           "properties": {
-            "Type": {
-              "type": "keyword"
+            "Identifier": {
+              "properties": {
+                "ID": {
+                  "type": "keyword"
+                },
+                "IDScheme": {
+                  "type": "keyword"
+                },
+                "IDURL": {
+                  "type": "keyword"
+                }
+              },
+              "type": "nested"
             },
-            "SubType": {
-              "type": "keyword"
-            },
-            "SubTypeSchema": {
-              "type": "keyword"
+            "Name": {
+              "type": "text"
             }
           },
-          "type": "object"
+          "type": "nested"
         },
-        "Title": {
-          "type": "text"
+        "GroupType": {
+          "type": "keyword"
         },
         "Identifier": {
           "properties": {
-            "IDURL": {
-              "type": "keyword"
-            },
             "ID": {
               "type": "keyword"
             },
             "IDScheme": {
               "type": "keyword"
-            }
-          },
-          "type": "nested"
-        },
-        "Creator": {
-          "properties": {
-            "Name": {
-              "type": "text"
             },
-            "Identifier": {
-              "properties": {
-                "IDURL": {
-                  "type": "keyword"
-                },
-                "ID": {
-                  "type": "keyword"
-                },
-                "IDScheme": {
-                  "type": "keyword"
-                }
-              },
-              "type": "nested"
-            }
-          },
-          "type": "nested"
-        },
-        "Publisher": {
-          "properties": {
-            "Name": {
-              "type": "text"
-            },
-            "Identifier": {
-              "properties": {
-                "IDURL": {
-                  "type": "keyword"
-                },
-                "ID": {
-                  "type": "keyword"
-                },
-                "IDScheme": {
-                  "type": "keyword"
-                }
-              },
-              "type": "nested"
+            "IDURL": {
+              "type": "keyword"
             }
           },
           "type": "nested"
         },
         "PublicationDate": {
           "type": "date"
+        },
+        "Publisher": {
+          "properties": {
+            "Identifier": {
+              "properties": {
+                "ID": {
+                  "type": "keyword"
+                },
+                "IDScheme": {
+                  "type": "keyword"
+                },
+                "IDURL": {
+                  "type": "keyword"
+                }
+              },
+              "type": "nested"
+            },
+            "Name": {
+              "type": "text"
+            }
+          },
+          "type": "nested"
+        },
+        "Title": {
+          "type": "text"
+        },
+        "Type": {
+          "properties": {
+            "SubType": {
+              "type": "keyword"
+            },
+            "SubTypeSchema": {
+              "type": "keyword"
+            },
+            "Type": {
+              "type": "keyword"
+            }
+          },
+          "type": "object"
         }
-      },
-      "dynamic": false,
-      "_all": {
-        "enabled": false
       }
     }
   }

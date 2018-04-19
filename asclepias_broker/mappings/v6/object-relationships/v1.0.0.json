@@ -1,161 +1,42 @@
 {
   "mappings": {
     "doc": {
+      "_all": {
+        "enabled": false
+      },
+      "dynamic": false,
       "properties": {
         "cites": {
           "properties": {
             "History": {
               "properties": {
-                "LinkPublicationDate": {
-                  "type": "date"
+                "LicenseURL": {
+                  "type": "keyword"
                 },
                 "LinkProvider": {
                   "properties": {
-                    "Name": {
-                      "type": "text"
-                    },
                     "Identifier": {
                       "properties": {
-                        "IDURL": {
-                          "type": "keyword"
-                        },
                         "ID": {
                           "type": "keyword"
                         },
                         "IDScheme": {
                           "type": "keyword"
-                        }
-                      },
-                      "type": "nested"
-                    }
-                  },
-                  "type": "nested"
-                },
-                "LicenseURL": {
-                  "type": "keyword"
-                }
-              },
-              "type": "nested"
-            },
-            "TargetID": {
-              "type": "keyword"
-            }
-          },
-          "type": "nested"
-        },
-        "isSupplementTo": {
-          "properties": {
-            "History": {
-              "properties": {
-                "LinkPublicationDate": {
-                  "type": "date"
-                },
-                "LinkProvider": {
-                  "properties": {
-                    "Name": {
-                      "type": "text"
-                    },
-                    "Identifier": {
-                      "properties": {
+                        },
                         "IDURL": {
                           "type": "keyword"
-                        },
-                        "ID": {
-                          "type": "keyword"
-                        },
-                        "IDScheme": {
-                          "type": "keyword"
                         }
                       },
                       "type": "nested"
-                    }
-                  },
-                  "type": "nested"
-                },
-                "LicenseURL": {
-                  "type": "keyword"
-                }
-              },
-              "type": "nested"
-            },
-            "TargetID": {
-              "type": "keyword"
-            }
-          },
-          "type": "nested"
-        },
-        "isSupplementedBy": {
-          "properties": {
-            "History": {
-              "properties": {
-                "LinkPublicationDate": {
-                  "type": "date"
-                },
-                "LinkProvider": {
-                  "properties": {
+                    },
                     "Name": {
                       "type": "text"
-                    },
-                    "Identifier": {
-                      "properties": {
-                        "IDURL": {
-                          "type": "keyword"
-                        },
-                        "ID": {
-                          "type": "keyword"
-                        },
-                        "IDScheme": {
-                          "type": "keyword"
-                        }
-                      },
-                      "type": "nested"
                     }
                   },
                   "type": "nested"
                 },
-                "LicenseURL": {
-                  "type": "keyword"
-                }
-              },
-              "type": "nested"
-            },
-            "TargetID": {
-              "type": "keyword"
-            }
-          },
-          "type": "nested"
-        },
-        "isRelatedTo": {
-          "properties": {
-            "History": {
-              "properties": {
                 "LinkPublicationDate": {
                   "type": "date"
-                },
-                "LinkProvider": {
-                  "properties": {
-                    "Name": {
-                      "type": "text"
-                    },
-                    "Identifier": {
-                      "properties": {
-                        "IDURL": {
-                          "type": "keyword"
-                        },
-                        "ID": {
-                          "type": "keyword"
-                        },
-                        "IDScheme": {
-                          "type": "keyword"
-                        }
-                      },
-                      "type": "nested"
-                    }
-                  },
-                  "type": "nested"
-                },
-                "LicenseURL": {
-                  "type": "keyword"
                 }
               },
               "type": "nested"
@@ -170,33 +51,156 @@
           "properties": {
             "History": {
               "properties": {
-                "LinkPublicationDate": {
-                  "type": "date"
+                "LicenseURL": {
+                  "type": "keyword"
                 },
                 "LinkProvider": {
                   "properties": {
-                    "Name": {
-                      "type": "text"
-                    },
                     "Identifier": {
                       "properties": {
-                        "IDURL": {
-                          "type": "keyword"
-                        },
                         "ID": {
                           "type": "keyword"
                         },
                         "IDScheme": {
                           "type": "keyword"
+                        },
+                        "IDURL": {
+                          "type": "keyword"
                         }
                       },
                       "type": "nested"
+                    },
+                    "Name": {
+                      "type": "text"
                     }
                   },
                   "type": "nested"
                 },
+                "LinkPublicationDate": {
+                  "type": "date"
+                }
+              },
+              "type": "nested"
+            },
+            "TargetID": {
+              "type": "keyword"
+            }
+          },
+          "type": "nested"
+        },
+        "isRelatedTo": {
+          "properties": {
+            "History": {
+              "properties": {
                 "LicenseURL": {
                   "type": "keyword"
+                },
+                "LinkProvider": {
+                  "properties": {
+                    "Identifier": {
+                      "properties": {
+                        "ID": {
+                          "type": "keyword"
+                        },
+                        "IDScheme": {
+                          "type": "keyword"
+                        },
+                        "IDURL": {
+                          "type": "keyword"
+                        }
+                      },
+                      "type": "nested"
+                    },
+                    "Name": {
+                      "type": "text"
+                    }
+                  },
+                  "type": "nested"
+                },
+                "LinkPublicationDate": {
+                  "type": "date"
+                }
+              },
+              "type": "nested"
+            },
+            "TargetID": {
+              "type": "keyword"
+            }
+          },
+          "type": "nested"
+        },
+        "isSupplementTo": {
+          "properties": {
+            "History": {
+              "properties": {
+                "LicenseURL": {
+                  "type": "keyword"
+                },
+                "LinkProvider": {
+                  "properties": {
+                    "Identifier": {
+                      "properties": {
+                        "ID": {
+                          "type": "keyword"
+                        },
+                        "IDScheme": {
+                          "type": "keyword"
+                        },
+                        "IDURL": {
+                          "type": "keyword"
+                        }
+                      },
+                      "type": "nested"
+                    },
+                    "Name": {
+                      "type": "text"
+                    }
+                  },
+                  "type": "nested"
+                },
+                "LinkPublicationDate": {
+                  "type": "date"
+                }
+              },
+              "type": "nested"
+            },
+            "TargetID": {
+              "type": "keyword"
+            }
+          },
+          "type": "nested"
+        },
+        "isSupplementedBy": {
+          "properties": {
+            "History": {
+              "properties": {
+                "LicenseURL": {
+                  "type": "keyword"
+                },
+                "LinkProvider": {
+                  "properties": {
+                    "Identifier": {
+                      "properties": {
+                        "ID": {
+                          "type": "keyword"
+                        },
+                        "IDScheme": {
+                          "type": "keyword"
+                        },
+                        "IDURL": {
+                          "type": "keyword"
+                        }
+                      },
+                      "type": "nested"
+                    },
+                    "Name": {
+                      "type": "text"
+                    }
+                  },
+                  "type": "nested"
+                },
+                "LinkPublicationDate": {
+                  "type": "date"
                 }
               },
               "type": "nested"
@@ -207,10 +211,6 @@
           },
           "type": "nested"
         }
-      },
-      "dynamic": false,
-      "_all": {
-        "enabled": false
       }
     }
   }

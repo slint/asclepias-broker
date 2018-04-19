@@ -93,6 +93,9 @@ setup(
         'invenio_base.api_blueprints': [
             'asclepias_broker = asclepias_broker.views:api_blueprint',
         ],
+        'flask.commands': [
+            'asclepias = asclepias_broker.cli:cli',
+        ],
         'invenio_admin.views': [
             'asclepias_broker_identifier = '
             'asclepias_broker.admin:identifier_adminview',
