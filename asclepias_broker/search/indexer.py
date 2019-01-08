@@ -84,13 +84,15 @@ def build_relationship_metadata(rel: GroupRelationship) -> dict:
         return deepcopy((rel.data and rel.data.json) or {})
 
 
-def index_documents(docs: Iterable[dict], bulk: bool = False):
+def index_documents(docs: Iterable[dict], bulk: bool = False,
+                    index: str = None):
     """Index a list of documents into ES."""
+    index = index or 'relationships'
     if bulk:
         bulk_index(
             client=current_search_client,
             actions=docs,
-            index='relationships',
+            index=index,
             doc_type='doc',
             raise_on_error=False,
             chunk_size=300,  # TODO: Make configurable
@@ -98,8 +100,7 @@ def index_documents(docs: Iterable[dict], bulk: bool = False):
         )
     else:
         for doc in docs:
-            current_search_client.index(
-                index='relationships', doc_type='doc', body=doc)
+            current_search_client.index(index=index, doc_type='doc', body=doc)
 
 
 def build_doc(
